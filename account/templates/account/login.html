@@ -1,0 +1,31 @@
+{#{% extends 'account/base.html' %}#}
+{#{% block title %}Login  {% load static %}{% endblock %}#}
+{##}
+{#{% block form %}#}
+{##}
+{#<div id="login-container"></div> <!-- C'est l'endroit où le composant React sera rendu -->#}
+{#<script>#}
+{#    const csrf_token = "{{ csrf_token|escapejs }}"; // Assurez-vous d'obtenir la valeur csrf_token dans votre modèle de template Django#}
+{#</script>#}
+{#<script type="module" src="{% static 'js/product.js' %}"></script>#}
+{##}
+{#<script>#}
+{#    // Exécutez le code React une fois que la page est chargée#}
+{#    window.addEventListener('load', () => {#}
+{#    });#}
+{#</script>#}
+{##}
+{#{% endblock %}#}
+
+{% extends 'account/base.html' %}
+    {%  block title %} Register {% endblock %}
+
+    {% block form %}
+        <h2>Création d'un compte </h2>
+        <form method="POST"  action=""> {% csrf_token %}
+            {{ form.as_p }}
+            <p>Vous avez déja un compte ? <a href="{% url 'login' %}"> Se connecter</a></p>
+            <button type="submit" class="submit" > Connexion &#8594 </button>
+
+        </form>
+    {% endblock %}
